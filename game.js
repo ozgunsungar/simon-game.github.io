@@ -3,7 +3,7 @@ var gamePattern = []
 var userClickedPattern = []
 var level = 0
 var atStart = true
-$(document).on("keypress", function (e) {
+$(document).on("click", function (e) {
 
     if (atStart) {
         nextSequence()
