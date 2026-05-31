@@ -5,6 +5,9 @@ var level = 0
 var atStart = true
 $(document).on("click", function (e) {
 
+    if($(e.target).closest(".btn").length){
+        return
+    }
     if (atStart) {
         nextSequence()
     }
@@ -15,6 +18,12 @@ $(document).on("click", function (e) {
 
 $(".btn").on("click", function (event) {
 
+    if(atStart){
+        console.log("girdi")
+        return;
+    }else{
+        console.log("asda")
+    }
     var userChosenColor = event.target.id
     userClickedPattern.push(userChosenColor)
     playSound(userChosenColor)
@@ -65,7 +74,7 @@ function checkAnswer(currentChosenIndex) {
         setTimeout(() => {
             $("body").removeClass("game-over")
         }, 200);
-        $("h1").text("Game Over, Press Any Key to Restart")
+        $("h1").text("Game Over, Click Anywhere to Restart")
         startOver()
     }
 }
